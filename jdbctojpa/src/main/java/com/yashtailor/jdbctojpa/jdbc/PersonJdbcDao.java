@@ -14,9 +14,26 @@ public class PersonJdbcDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    class PersonRowMapper implements RowMapper<Person>{
+
+        @Override
+        public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Person person = new Person();
+            person.setId(rs.getInt("id"));
+            person.setName(rs.getString("name"));
+            person.setLocation(rs.getString("location"));
+            person.setBirthDate(rs.getTimestamp("birth_date"));
+            return person;
+        }
+    }
+
     //select * from person
-    public List<Person> findAll(){
+  /*  public List<Person> findAll(){
        return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper<Person>(Person.class));
+    }*/
+
+    public List<Person> findAll() {
+        return jdbcTemplate.query("select * from person", new PersonRowMapper());
     }
 
     public Person findById(int id){

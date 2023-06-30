@@ -1,0 +1,41 @@
+--create table student
+--(
+--   id integer not null,
+--   name varchar(255) not null,
+--   location varchar(255),
+--   birth_date timestamp,
+--   primary key(id)
+--);
+
+INSERT INTO EDUCATOR ( NAME, LOCATION,BIRTH_DATE) VALUES('John Doe', 'XYZ',CURRENT_DATE());
+INSERT INTO EDUCATOR ( NAME, LOCATION,BIRTH_DATE) VALUES('Jill Doe ', 'ABC',CURRENT_DATE());
+INSERT INTO EDUCATOR ( NAME, LOCATION,BIRTH_DATE) VALUES('Jane Doe', 'DEF',CURRENT_DATE());
+INSERT INTO STUDENT ( ID,NAME, LOCATION,BIRTH_DATE,IS_DELETED) VALUES(10,'Mohit', 'Rajkot',CURRENT_DATE(),false);
+INSERT INTO STUDENT ( ID,NAME, LOCATION,BIRTH_DATE,IS_DELETED) VALUES(20,'Avinash', 'Surat',CURRENT_DATE(),false);
+INSERT INTO STUDENT ( ID,NAME, LOCATION,BIRTH_DATE,IS_DELETED) VALUES(30,'CJ', 'Bhavnagar',CURRENT_DATE(),false);
+INSERT INTO STUDENT ( ID,NAME, LOCATION,BIRTH_DATE,IS_DELETED) VALUES(40,'Temp', 'Temp',CURRENT_DATE(),false);
+
+INSERT INTO PASSPORT (ID,NUMBER,STUDENT_ID) VALUES(100,'EP1234',10);
+INSERT INTO PASSPORT (ID,NUMBER,STUDENT_ID) VALUES(101,'PP1234',20);
+INSERT INTO PASSPORT (ID,NUMBER,STUDENT_ID) VALUES(102,'MP1234',30);
+
+insert into course(id, name,create_date)
+values(10001,'JPA in 50 Steps',CURRENT_DATE());
+insert into course(id, name,create_date)
+values(10002,'Spring in 50 Steps',CURRENT_DATE());
+insert into course(id, name,create_date)
+values(10003,'Spring Boot in 100 Steps',CURRENT_DATE());
+
+insert into review(id,rating,description,course_id)
+values(50001,5, 'Great Course',10001);
+insert into review(id,rating,description,course_id)
+values(50002,4, 'Wonderful Course',10001);
+insert into review(id,rating,description,course_id)
+values(50003,2, 'Awesome Course',10003);
+
+INSERT INTO STUDENT_COURSE(STUDENT_ID,COURSE_ID) VALUES(10,10001);
+INSERT INTO STUDENT_COURSE(STUDENT_ID,COURSE_ID) VALUES(20,10001);
+INSERT INTO STUDENT_COURSE(STUDENT_ID,COURSE_ID) VALUES(30,10001);
+INSERT INTO STUDENT_COURSE(STUDENT_ID,COURSE_ID) VALUES(10,10002);
+INSERT INTO STUDENT_COURSE(STUDENT_ID,COURSE_ID) VALUES(20,10003);
+INSERT INTO STUDENT_COURSE(STUDENT_ID,COURSE_ID) VALUES(30,10003);
