@@ -36,4 +36,13 @@ public class BookService {
         book.setId(id);
         return book;
     }
+
+    public Book findBookById(Long bookId) {
+        Book book = bookRepository.findById(bookId).orElse(null);
+        if(book == null){
+            throw new RuntimeException("Not Found ");
+        }else{
+                return book;
+        }
+    }
 }

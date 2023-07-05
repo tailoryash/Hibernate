@@ -1,14 +1,10 @@
-package com.simform.jpamapping.entity;
+package com.yashtailor.entitymanager.entity;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.*;
 
 @Entity
 @Table(name = "books")
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

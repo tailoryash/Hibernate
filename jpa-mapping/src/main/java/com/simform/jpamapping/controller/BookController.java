@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.*;
+
 @RestController
-@RequestMapping("/api/v1/books")
+    @RequestMapping("/api/v1/books")
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -28,5 +30,11 @@ public class BookController {
     public ResponseEntity<Book> updateById(@RequestBody Book book, @PathVariable("id") Long id){
         Book updatedBook = bookService.updateBook(book, id);
         return ResponseEntity.ok(updatedBook);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable("id") Long bookId){
+        Book BookById = bookService.findBookById(bookId);
+        return ResponseEntity.ok(BookById);
     }
 }

@@ -5,6 +5,7 @@ import com.simform.jpamapping.repository.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.*;
 
 @SpringBootApplication
 public class JpaMappingApplication implements CommandLineRunner{
